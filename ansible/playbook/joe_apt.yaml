@@ -1,0 +1,6 @@
+- hosts: servidores
+  remote_user: espois
+  become: yes
+  tasks:
+  - name: Instala o JOE
+    apt: name=joe state=present

@@ -1,0 +1,10 @@
+- hosts: servidores
+  remote_user: espois
+  become: yes
+  tasks:
+  - name: Instala o servico NGINX  (sincronizacao de tempo)
+    apt: name=nginx state=present
+  - name: Garante que o NGINX esta rodando
+    service: name=nginx state=started enabled=yes
+  - name: Ajusta Relogio
+    shell: timedatectl set-timezone America/Sao_Paulo  
